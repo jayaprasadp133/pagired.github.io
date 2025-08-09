@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verify Certificate - PagirEd</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<script>
+function verifyCertificate(){
+ let id=document.getElementById('certId').value.trim();
+ let result=document.getElementById('result');
+ if(id===""){
+   result.style.color="red";
+   result.innerText="Please enter a Certificate ID.";
+ } else if(id==="ABC123"){
+   result.style.color="green";
+   result.innerText="✅ Certificate Verified: John Doe (Valid)";
+ } else {
+   result.style.color="red";
+   result.innerText="❌ Invalid Certificate ID.";
+ }
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="logo">PagirEd</div>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="verify.html" style="color:var(--primary);">Verify Certificate</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section>
+  <h2>Verify Your Certificate</h2>
+  <div class="verify-box">
+    <input type="text" id="certId" placeholder="Enter Certificate ID">
+    <button onclick="verifyCertificate()">Verify</button>
+    <div id="result" class="verify-result"></div>
+  </div>
+  <a href="index.html" class="back-home">← Back to Home</a>
+</section>
+<script src="transition.js"></script>
+</body>
+</html>

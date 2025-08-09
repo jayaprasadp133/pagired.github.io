@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<title>PagirEd – Turning Shared Ideas into Skills</title>
+<link rel="icon" href="head.png" type="icon">
+<link rel="stylesheet" href="style.css">
+<style>
+  .approach-section {
+    padding: 2rem;
+    background: #f9f9f9;
+  }
+
+  .approach-section h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+  }
+
+  .carousel-container {
+    position: relative;
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.5s ease;
+    padding: 20px;
+  }
+  .carousel-track img{
+    width: 120px;
+    height: 120px;
+  }
+
+  .approach-card {
+    min-width: 280px;
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+  }
+
+
+  .carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 2rem; /* optional, for spacing between cards */
+  scroll-snap-type: x mandatory;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none; /* optional: hides scrollbar */
+}
+
+.carousel-btn {
+  background: #fff;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  z-index: 5;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-btn.prev {
+  left: 0;
+}
+
+.carousel-btn.next {
+  right: 0;
+}
+
+
+</style>
+
+<script>
+function reveal(){
+ let reveals=document.querySelectorAll(".reveal");
+ for(let i=0;i<reveals.length;i++){
+   let windowHeight=window.innerHeight;
+   let elementTop=reveals[i].getBoundingClientRect().top;
+   let elementVisible=150;
+   if(elementTop<windowHeight-elementVisible){reveals[i].classList.add("active");}
+   else{reveals[i].classList.remove("active");}
+ }
+}
+window.addEventListener("scroll",reveal);
+window.addEventListener("load",reveal);
+
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    const track = document.querySelector('.carousel-track');
+    const prev = document.querySelector('.carousel-btn.prev');
+    const next = document.querySelector('.carousel-btn.next');
+
+    const scrollStep = 320; // Adjust based on card width
+
+    if (prev && next && track) {
+      prev.addEventListener('click', () => {
+        track.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+      });
+
+      next.addEventListener('click', () => {
+        track.scrollBy({ left: scrollStep, behavior: 'smooth' });
+      });
+    }
+  });
+</script>
+
+
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <div class="logo">Pagir <span class="col-hig">Ed</span>
+    <img src="head.png" alt="PagirEd Logo">
+  </div>
+    
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="features.html">Features</a></li>
+    <li><a href="courses.html">Courses</a></li>
+    <li><a href="verify.html">Verify Certificate</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Create Future Skills</h1>
+    <p>Turning Shared Ideas into Skills – Learn, Build, and Showcase with PagirEd</p>
+    <div class="hero-stats">
+      <div><strong>70+</strong><span>Courses Developed</span></div>
+      <div><strong>15</strong><span>Expert Mentors</span></div>
+      <div><strong>500+</strong><span>Learners Reached</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="reveal">
+  <h2 style="color: #4e4d4d;">Curious to know who we are and what drives us?</h2>
+  <p class="about-text">
+    We are more than just an EdTech startup – we’re a community of innovators, mentors, and learners united by a shared mission to transform ideas into real‑world impact. <br>
+    <a href="about.html" class="btn-go" style="margin-top: 20px;">Go there</a>
+  </p>
+</section>
+
+
+<section class="approach-section">
+  <h2>Our Approach</h2>
+  <div class="carousel-container">
+    <button class="carousel-btn prev">&#10094;</button>
+    <div class="carousel-track">  
+      <div class="approach-card">
+        <img src="images/quiz.png" alt="Quizzes">
+        <h3>Pre- and Post-<span>quizzes</span></h3>
+        <p>Gauge learners’ understanding before & after the course to measure real impact.</p>
+      </div>
+      <div class="approach-card">
+        <img src="images/video.png" alt="Videos">
+        <h3>Micro-learning <span>Videos</span></h3>
+        <p>Bite‑sized lessons designed for today’s fast‑paced learning environment.</p>
+      </div>
+      <div class="approach-card">
+        <img src="images/project.png" alt="Projects" style="width: 150px; height: 150px; margin-top: -15px;">
+        <h3 style="margin-top: -15px;">Hands-on <span>Projects</span></h3>
+        <p style="position: relative;">Apply learning to real-world tasks, building a strong professional portfolio.</p>
+      </div>
+      <div class="approach-card">
+        <img src="images/msme.png" alt="Certificate" style="width: 130px; height: 130px;">
+        <h3 style="position: relative ; margin-top: -6px;">MSME-<span>Certified</span></h3>
+        <p style="position: relative;">Earn certificates recognized by MSME to enhance your credibility.</p>
+      </div>
+    </div>
+    <button class="carousel-btn next">&#10095;</button>
+  </div>
+</section>
+
+<!-- Key Highlights -->
+<section class="reveal">
+  <h2>Key Highlights</h2>
+  <div class="three-col">
+    <div>
+      <h3>💻 Real‑World Projects</h3>
+      <p>Build industry‑grade projects with real‑world impact.</p>
+      <ul>
+        <li>Solve practical problems</li>
+        <li>Use modern tools & frameworks</li>
+        <li>Showcase on GitHub & portfolio</li>
+        <li>Present at events & hackathons</li>
+      </ul>
+    </div>
+    <div>
+      <h3>📜 MSME‑Certified</h3>
+        <p>Earn a govt‑recognized MSME certificate to boost your career</p>
+      <ul>
+        <li>Nationally accepted & credible</li>
+        <li>Enhances job & promotion prospects</li>
+        <li>Strengthens professional portfolio</li>
+      </ul>
+
+    </div>
+    <div>
+      <h3>👨‍🏫 Industry Experts</h3>
+      <p>Gain insights from seasoned industry professionals.</p>
+      <ul>
+        <li>Experienced mentors</li>
+        <li>Latest industry trends</li>
+        <li>Real‑world tips & feedback</li>
+      </ul>
+
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="reveal">
+  <h2>How It Works</h2>
+  <div class="three-col">
+    <div>
+      <h3>📚 Learn</h3>
+      <p>Join interactive live sessions led by expert mentors in your chosen field.</p>
+    </div>
+    <div>
+      <h3>🛠 Build</h3>
+      <p>Apply your knowledge to create impactful, real‑world projects during the course.</p>
+    </div>
+    <div>
+      <h3>🚀 Showcase</h3>
+      <p>Publish your projects online and present them in professional events.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 PagirEd. All rights reserved. | Designed with ❤️ for learners
+</footer>
+<script src="transition.js"></script>
+</body>
+</html>
